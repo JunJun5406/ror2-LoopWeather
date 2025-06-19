@@ -4,7 +4,7 @@
     "website_url": "https://github.com/WolfoIsBestWolf/ror2-LoopVariants",
     "description": "Adds more Sots-style loop weather variants",
     "dependencies": [
-		"Wolfo-LoopVariantConfig-1.5.0",
+		"Wolfo-LoopVariantConfig-1.0.0",
         "bbepis-BepInExPack-5.4.9",
 		"RiskofThunder-HookGenPatcher-1.2.1"
     ]

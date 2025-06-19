@@ -64,14 +64,18 @@ namespace VariantConfig
 
         public static SceneDef GreenPortal_PickLoopVariant(On.RoR2.SceneExitController.orig_GetLoopedStageOrDefault orig, SceneExitController self, SceneDef sceneDef)
         {
-            if (SyncLoopWeather.instance.NextStage_LoopVariant)
+            SceneDef overrideScene = null;
+            if (sceneDef.loopedSceneDef && SyncLoopWeather.instance.NextStage_LoopVariant)
             {
-                return sceneDef.loopedSceneDef;
+                overrideScene = sceneDef.loopedSceneDef;
             }
             else if (sceneDef.isLockedBeforeLooping)
             {
-                SceneDef pre = VariantToPreLoop(sceneDef);
-                return sceneDef;
+                overrideScene = VariantToPreLoop(sceneDef);
+            }
+            if (overrideScene != null)
+            {
+                return overrideScene;
             }
             return sceneDef;
         }
