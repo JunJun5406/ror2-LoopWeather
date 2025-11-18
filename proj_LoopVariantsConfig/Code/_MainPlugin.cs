@@ -234,7 +234,7 @@ namespace VariantConfig
                 {
                     return 0;
                 }
-                return (Run.instance.stageClearCount + 1) / Run.stagesPerLoop;
+                return (Run.instance.stageClearCount + 1) / 5;// Run.stagesPerLoop;
             }
         }
 
