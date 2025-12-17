@@ -22,8 +22,7 @@ namespace VariantConfig
         public static ConfigEntry<float> Chance_Loop;
         public static ConfigEntry<float> Chance_Loop_2;
         public static ConfigEntry<bool> Alternate_Chances;
- 
-
+        
         public static void InitConfig()
         {
 
@@ -58,7 +57,7 @@ namespace VariantConfig
                 false,
                 "Weather sets alternate between loops.\nGo standard, loop, standard, loop.\nIgnores consecutive loop setting."
             );
- 
+  
             LakesNightSpawnPool = ConfigFileSTAGES.Bind(
                 "Stage 1 Loop Variants",
                 "Friendlier spawnpools",

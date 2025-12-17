@@ -5,7 +5,7 @@ Or for unLooped variants to happen on Loops.
 
 
 #
-Makes some enemies properly loop exclusive on the Stage 1 Variants so they can better fit a stage 1 role.
+Makes some enemies & interactables properly loop exclusive on the Stage 1 Variants, so they can actually fit a stage 1 role.
 
 Viscious Falls :
 - Imp Overlord & Grovetender
@@ -13,9 +13,8 @@ Viscious Falls :
 
 Disturbed Impact :
 - Grovetender
-- Pre-Loop: Scales as 280 credits with flat -20 for Guaranteed Large Chest
-- - Normally has 310 credits, would be too much for a Stage 1.
-
+- Pre-Loop: Scales as 280 credits with flat -10 for Guaranteed Large Chest
+ 
  
  
 ##

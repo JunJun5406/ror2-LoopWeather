@@ -1,5 +1,11 @@
 ## Changelog:
 ```
+v1.5.1
+Fixed for AC 1.4.1
+-Grove was not loading.
+Removed the Pink Leaves on loop Reformed and Meridian as that was movde to WQoL as per request.
+
+
 v1.5.0
 Fixed for DLC2.4
 Split loop variant config into it's mod.

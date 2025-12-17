@@ -1,6 +1,6 @@
 {
     "name": "LoopVariantConfig",
-    "version_number": "1.0.1",
+    "version_number": "1.0.3",
     "website_url": "https://github.com/WolfoIsBestWolf/ror2-LoopVariants",
     "description": "[Server-Side] Adds config to allow Loop Variants to occur pre loop or vice versa.",
     "dependencies": [

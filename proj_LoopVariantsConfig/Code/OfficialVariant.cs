@@ -44,6 +44,8 @@ namespace VariantConfig
         public static void Teleporter_PickLoopVariant(On.RoR2.Run.orig_PickNextStageScene orig, Run self, WeightedSelection<SceneDef> choices)
         {
             orig(self, choices);
+            if (!self.nextStageScene)
+            { return; }
             if (SyncLoopWeather.instance.NextStage_LoopVariant)
             {
                 if (self.nextStageScene.loopedSceneDef != null && self.CanPickStage(self.nextStageScene.loopedSceneDef))

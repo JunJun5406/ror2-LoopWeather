@@ -8,7 +8,7 @@ using System.Runtime.CompilerServices;
 
 namespace VariantConfig
 {
-    [BepInPlugin("Wolfo.LoopVariantConfig", "LoopVariantConfig", "1.5.0")]
+    [BepInPlugin("Wolfo.LoopVariantConfig", "LoopVariantConfig", "1.5.1")]
     public class VariantConfig : BaseUnityPlugin
     {
         public static bool HostHasMod_ = false;
@@ -58,8 +58,7 @@ namespace VariantConfig
 
             ChatMessageBase.chatMessageTypeToIndex.Add(typeof(SendSyncLoopWeather), (byte)ChatMessageBase.chatMessageIndexToType.Count);
             ChatMessageBase.chatMessageIndexToType.Add(typeof(SendSyncLoopWeather));
-            ChatMessageBase.chatMessageTypeToIndex.Add(typeof(HostHasModAlert), (byte)ChatMessageBase.chatMessageIndexToType.Count);
-            ChatMessageBase.chatMessageIndexToType.Add(typeof(HostHasModAlert));
+ 
 
             Stage1_Changes.EditDccs();
             applyWeatherDCCS += Stage1_Changes.OfficialVariantStage1Friendly;
@@ -85,7 +84,7 @@ namespace VariantConfig
                     }
                     else
                     {
-                        Debug.Log("applyWeatherVisuals action Null");
+                        //Debug.Log("applyWeatherVisuals action Null");
                     }
                 }
             }
@@ -98,7 +97,10 @@ namespace VariantConfig
             //Debug.LogWarning("On.RoR2.Run.orig_Awake");
             if (NetworkServer.active)
             {
-                Chat.SendBroadcastChat(new HostHasModAlert());
+                Chat.SendBroadcastChat(new VariantConfig.SendSyncLoopWeather
+                {
+                    HostPing = true,
+                });
             }
         }
  
@@ -163,24 +165,10 @@ namespace VariantConfig
 
 
 
-
-        public class HostHasModAlert : ChatMessageBase
-        {
-            public override string ConstructChatString()
-            {
-                if (HostHasMod == false)
-                {
-                    Debug.Log("LoopWeather | Host has mod");
-                }
-                HostHasMod = true;
-                //Debug.Log("Will sync Custom Loop Variants with Host");
-                return null;
-            }
-        }
-
+ 
         public class SendSyncLoopWeather : ChatMessageBase
         {
-            public event Action<bool> onHostLoopChoice;
+            //public event Action<bool> onHostLoopChoice;
             public override string ConstructChatString()
             {
                 if (!NetworkServer.active)
@@ -207,15 +195,23 @@ namespace VariantConfig
 
             public bool CURRENT;
             public bool NEXT;
+             public bool HostPing = false;
             public override void Serialize(NetworkWriter writer)
             {
                 base.Serialize(writer);
+                writer.Write(HostPing);
                 writer.Write(CURRENT);
                 writer.Write(NEXT);
             }
             public override void Deserialize(NetworkReader reader)
             {
                 base.Deserialize(reader);
+                HostPing = reader.ReadBoolean();
+                if (HostPing)
+                {
+                    HostHasMod = true;
+                    return;
+                }
                 CURRENT = reader.ReadBoolean();
                 NEXT = reader.ReadBoolean();
             }

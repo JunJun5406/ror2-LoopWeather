@@ -10,7 +10,7 @@ using UnityEngine;
 namespace LoopVariants
 {
     [BepInDependency("Wolfo.LoopVariantConfig")]
-    [BepInPlugin("Wolfo.LoopVariantsWolfo", "WolfosLoopVariants", "1.5.0")]
+    [BepInPlugin("Wolfo.LoopVariantsWolfo", "WolfosLoopVariants", "1.5.1")]
     public class WLoopMain : BaseUnityPlugin
     {
 
@@ -55,23 +55,10 @@ namespace LoopVariants
  
             VariantConfig.VariantConfig.applyWeatherDCCS += VariantDCCS;
             VariantConfig.VariantConfig.applyWeatherVisuals += VariantConfig_applyWeatherGlobal;
-
-            ChatMessageBase.chatMessageTypeToIndex.Add(typeof(ClientPing), (byte)ChatMessageBase.chatMessageIndexToType.Count);
-            ChatMessageBase.chatMessageIndexToType.Add(typeof(ClientPing));
-            On.RoR2.Run.PreStartClient += Run_PreStartClient;
-            Run.onRunDestroyGlobal += Run_onRunDestroyGlobal;
+ 
         }
-        private void Run_PreStartClient(On.RoR2.Run.orig_PreStartClient orig, Run self)
-        {
-            orig(self);
-            Chat.SendBroadcastChat(new ClientPing());
-        }
-        private void Run_onRunDestroyGlobal(Run obj)
-        {
-            peopleWithMod = 0;
-        }
-
-        
+ 
+    
 
         private void VariantConfig_applyWeatherGlobal(SyncLoopWeather weather)
         {
@@ -134,9 +121,6 @@ namespace LoopVariants
                         }
                         break;
                     case "lemuriantemple":
-
-                        Variants_2_LemurianTemple.Setup();
-                        Variants_2_LemurianTemple.LoopWeather();
                         if (WConfig.S_2_LemurianTemple_Legacy.Value)
                         {
                             hadVariant = true;
@@ -305,14 +289,7 @@ namespace LoopVariants
             }
         }
 
-        public class ClientPing : ChatMessageBase
-        {
-            public override string ConstructChatString()
-            {
-                peopleWithMod++;
-                return null;
-            }
-        }
+        
     }
 
 }

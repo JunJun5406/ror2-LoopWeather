@@ -116,9 +116,19 @@ namespace LoopVariants
 
             //
             //
-            RJDistantTreeFoliage = Object.Instantiate(Addressables.LoadAssetAsync<Material>(key: "RoR2/Base/rootjungle/RJDistantTreeFoliage.st").WaitForCompletion());
+            RJDistantTreeFoliage = Object.Instantiate(Addressables.LoadAssetAsync<GameObject>(key: "RoR2/Base/rootjungle/RJDistantTreeFoliage.st").WaitForCompletion().GetComponentInChildren<MeshRenderer>().materials[1]);
             RJDistantTreeFoliage.mainTexture = RJDistantTreeFoliage_Color;
             RJDistantTreeFoliage.color = Color.white; //0.6706 0.6706 0.6706 1
+
+            MAT_RJTowerTreeFoliage = Object.Instantiate(Addressables.LoadAssetAsync<GameObject>(key: "RoR2/Base/rootjungle/RJTowerTreeFoliage.st").WaitForCompletion().GetComponentInChildren<MeshRenderer>().materials[1]);
+            MAT_RJTowerTreeFoliage.mainTexture = RJTowerTreeFoliage_Color;
+            MAT_RJTowerTreeFoliage.color = new Color(1.34f, 1.34f, 1.34f, 1f); //0.6706 0.6706 0.6706 1
+
+            RJTreeBigFoliage = Object.Instantiate(Addressables.LoadAssetAsync<GameObject>(key: "RoR2/Base/rootjungle/RJTreeBigFoliage.st").WaitForCompletion().GetComponentInChildren<MeshRenderer>().material);
+            //RJTreeBigFoliage_LOD0 = Object.Instantiate(Addressables.LoadAssetAsync<Material>(key: "RoR2/Base/rootjungle/RJTreeBigFoliage_LOD0.mat").WaitForCompletion());
+            RJTreeBigFoliage.mainTexture = RJTreeBigFoliage_Color;
+
+
 
             RJfern_LOD0 = Object.Instantiate(Addressables.LoadAssetAsync<Material>(key: "RoR2/Base/rootjungle/RJfern_LOD0.mat").WaitForCompletion());
 
@@ -136,10 +146,14 @@ namespace LoopVariants
             RJHangingMoss_LOD0.mainTexture = RJHangingMoss_Color;
             RJHangingMoss_LOD0.color = Color.white;
 
+
+           // Addressables.LoadAssetAsync<Material>(key: "RoR2/Base/rootjungle/RJMossFoliage_LOD0.mat").WaitForCompletion().DisableKeyword("EFFECT_HUE_VARIATION");
+
             RJMossFoliage_LOD0 = Object.Instantiate(Addressables.LoadAssetAsync<Material>(key: "RoR2/Base/rootjungle/RJMossFoliage_LOD0.mat").WaitForCompletion());
             //RJMossFoliage_LOD0.color = new Color(0.8679f, 0.8416f, 0.479f, 1); //0.479 0.8416 0.8679 1
             RJMossFoliage_LOD0.color = new Color(0.8679f, 0.8416f, 0.479f, 1) * 1.3f; //0.479 0.8416 0.8679 1
             RJMossFoliage_LOD0.mainTexture = RJMossFoliage_Color;
+            RJMossFoliage_LOD0.DisableKeyword("EFFECT_HUE_VARIATION");
 
             RJpinkshroom_LOD0 = Object.Instantiate(Addressables.LoadAssetAsync<Material>(key: "RoR2/Base/rootjungle/RJpinkshroom_LOD0.mat").WaitForCompletion());
             RJpinkshroom_LOD0.mainTexture = RJpinkshroom_Color;
@@ -149,14 +163,7 @@ namespace LoopVariants
             RJShroomFoliage_LOD0 = Object.Instantiate(Addressables.LoadAssetAsync<Material>(key: "RoR2/Base/rootjungle/RJShroomFoliage_LOD0.mat").WaitForCompletion());
             RJShroomFoliage_LOD0.mainTexture = RJShroomFoliage_Color;
 
-            MAT_RJTowerTreeFoliage = Object.Instantiate(Addressables.LoadAssetAsync<Material>(key: "RoR2/Base/rootjungle/RJTowerTreeFoliage.st").WaitForCompletion());
-            MAT_RJTowerTreeFoliage.mainTexture = RJTowerTreeFoliage_Color;
-            MAT_RJTowerTreeFoliage.color = new Color(1.34f, 1.34f, 1.34f, 1f); //0.6706 0.6706 0.6706 1
-
-            RJTreeBigFoliage = Object.Instantiate(Addressables.LoadAssetAsync<Material>(key: "RoR2/Base/rootjungle/RJTreeBigFoliage.st").WaitForCompletion());
-            //RJTreeBigFoliage_LOD0 = Object.Instantiate(Addressables.LoadAssetAsync<Material>(key: "RoR2/Base/rootjungle/RJTreeBigFoliage_LOD0.mat").WaitForCompletion());
-            RJTreeBigFoliage.mainTexture = RJTreeBigFoliage_Color;
-
+   
             matRootJungleSpore = Object.Instantiate(Addressables.LoadAssetAsync<Material>(key: "RoR2/Base/rootjungle/matRootJungleSpore.mat").WaitForCompletion());
             matRootJungleSpore.SetColor("_TintColor", new Color(12f, 10.7f, 3.5f, 1f)); //3.5137 6.7137 16 1
 
@@ -264,13 +271,13 @@ namespace LoopVariants
 
 
             Fruit = Addressables.LoadAssetAsync<GameObject>(key: "RoR2/DLC2/habitat/Assets/BHFruitSmall.prefab").WaitForCompletion();
-            FruitFall = Addressables.LoadAssetAsync<GameObject>(key: "RoR2/DLC2/habitatfall/Assets/BHFallMushroomDrips.prefab").WaitForCompletion();
+            /*FruitFall = Addressables.LoadAssetAsync<GameObject>(key: "RoR2/DLC2/habitatfall/Assets/BHFallMushroomDrips.prefab").WaitForCompletion();
 
             FruitFall.transform.GetChild(0).gameObject.SetActive(false);
             FruitFall.transform.GetChild(1).GetChild(1).localPosition = new Vector3(0, -5, 0);
             Transform temp = FruitFall.transform.GetChild(1).GetChild(3).GetChild(0);
             temp.GetComponent<HurtBoxGroup>().hurtBoxes[0] = temp.GetComponentInChildren<HurtBox>();
-            FruitFall.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+            FruitFall.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);*/
 
         }
 
@@ -361,9 +368,7 @@ namespace LoopVariants
                 }
             }
             #endregion
-
-
-
+ 
             #region Particles
             //forEach Mushroom, particle change colors ig
 

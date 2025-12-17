@@ -39,7 +39,7 @@ namespace VariantConfig
 
         public static void OfficialVariantStage1Friendly(DirectorCardCategorySelection dccs)
         {
-            Debug.Log("Loop Variant DCCS : " + SceneCatalog.mostRecentSceneDef.baseSceneName);
+            //Debug.Log("Loop Variant DCCS : " + SceneCatalog.mostRecentSceneDef.baseSceneName);
             switch (SceneInfo.instance.sceneDef.baseSceneName)
             {
                 case "lakesnight":
@@ -57,7 +57,7 @@ namespace VariantConfig
                             HG.ArrayUtils.ArrayAppend(ref ClassicStageInfo.instance.bonusInteractibleCreditObjects,
                                 new ClassicStageInfo.BonusInteractibleCreditObject
                                 {
-                                    points = -20, //Large Chest flat reduction
+                                    points = -10, //Large Chest flat reduction
                                     objectThatGrantsPointsIfEnabled = RoR2.Run.instance.gameObject
                                 });
                         }

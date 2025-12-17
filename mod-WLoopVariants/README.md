@@ -17,11 +17,7 @@ No idea how this mod interacts with Stage Aesthetics or Cooler Stages.
 
 </details>
 
-
-#
-Reformed Altar & Prime Meridian will have their green leaves replaced with the pink-reddish ones from Golden Dieback during loops, since they're directly connected.
-![Image not showing up from Github](https://raw.githubusercontent.com/WolfoIsBestWolf/ror2-LoopWeather/main/_modPageImages/loopVariantsColossusExtras.png)
-
+ 
 #
 ### Inspirations :
 ```
