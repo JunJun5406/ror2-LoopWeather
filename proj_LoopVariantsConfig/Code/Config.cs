@@ -1,9 +1,7 @@
 using BepInEx;
 using BepInEx.Configuration;
 using RiskOfOptions;
-using RiskOfOptions.OptionConfigs;
 using RiskOfOptions.Options;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -15,14 +13,14 @@ namespace VariantConfig
 
         public static ConfigEntry<bool> Preset;
 
-        public static ConfigEntry<bool> LakesNightSpawnPool; 
+        public static ConfigEntry<bool> LakesNightSpawnPool;
         public static ConfigEntry<bool> VillageNight_Credits;
- 
+
         public static ConfigEntry<float> Chance_PreLoop;
         public static ConfigEntry<float> Chance_Loop;
         public static ConfigEntry<float> Chance_Loop_2;
         public static ConfigEntry<bool> Alternate_Chances;
-        
+
         public static void InitConfig()
         {
 
@@ -57,7 +55,7 @@ namespace VariantConfig
                 false,
                 "Weather sets alternate between loops.\nGo standard, loop, standard, loop.\nIgnores consecutive loop setting."
             );
-  
+
             LakesNightSpawnPool = ConfigFileSTAGES.Bind(
                 "Stage 1 Loop Variants",
                 "Friendlier spawnpools",
@@ -72,7 +70,7 @@ namespace VariantConfig
             );
 
 
-          
+
         }
 
         private static void Preset_SettingChanged(object sender, System.EventArgs e)
@@ -106,13 +104,13 @@ namespace VariantConfig
             ModSettingsManager.AddOption(new FloatFieldOption(Chance_Loop));
             ModSettingsManager.AddOption(new FloatFieldOption(Chance_Loop_2));
             ModSettingsManager.AddOption(new CheckBoxOption(Alternate_Chances));
-            ModSettingsManager.AddOption(new CheckBoxOption(LakesNightSpawnPool,true));
+            ModSettingsManager.AddOption(new CheckBoxOption(LakesNightSpawnPool, true));
             ModSettingsManager.AddOption(new CheckBoxOption(VillageNight_Credits));
 
- 
-        }
-         
 
- 
+        }
+
+
+
     }
 }

@@ -6,7 +6,7 @@ namespace LoopVariants
 {
     public class Variants_3_WispGraveyard : Variant_Base
     {
- 
+
         public static void LoopWeather()
         {
             GameObject Weather = GameObject.Find("/Weather, Wispgraveyard");

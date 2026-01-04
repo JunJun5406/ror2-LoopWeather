@@ -1,5 +1,3 @@
-using RoR2;
-
 namespace LoopVariants
 {
     public class Variant_Base
@@ -8,6 +6,6 @@ namespace LoopVariants
         {
 
         }
-        
+
     }
 }

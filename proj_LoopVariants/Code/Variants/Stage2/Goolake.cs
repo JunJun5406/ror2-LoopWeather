@@ -1,10 +1,7 @@
 using RoR2;
-using RoR2.Navigation;
-using System.Collections.Generic;
 using ThreeEyedGames;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.Networking;
 using UnityEngine.Rendering.PostProcessing;
 
 namespace LoopVariants
@@ -214,7 +211,7 @@ namespace LoopVariants
                 Transform WaterFall2 = SecondAquadcut.transform.GetChild(1);
                 WaterFall2.localPosition = new Vector3(0.5f, -7.8f, 0);
                 WaterFall2.localScale = new Vector3(0.7f, 0.1f, 1);
- 
+
                 WaterFall2.gameObject.GetComponent<MeshRenderer>().enabled = false;
 
                 GameObject newDecal = Object.Instantiate(WaterFall2.GetChild(5).gameObject);
@@ -256,11 +253,11 @@ namespace LoopVariants
                 WaterFall2.localScale = new Vector3(0.7f, 0.7f, 1);
             }
 
-            
 
 
 
-          
+
+
 
             GameObject DecorAquaduct = GameObject.Instantiate(OriginalAquaduct.gameObject); //Aquaduct
 
@@ -368,7 +365,7 @@ namespace LoopVariants
 
 
 
-      
+
     }
     public class DebuffZoneFixed : MonoBehaviour
     {

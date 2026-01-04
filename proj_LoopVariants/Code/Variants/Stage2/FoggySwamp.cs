@@ -7,7 +7,7 @@ namespace LoopVariants
 {
     public class Variants_2_FoggySwamp : Variant_Base
     {
- 
+
         public static void LoopWeather()
         {
 
@@ -145,7 +145,7 @@ namespace LoopVariants
             rampFog.fogPower.value = 2f;
             process.profile.settings[0] = rampFog;
 
-         
+
             GameObject HalcyShrine = Addressables.LoadAssetAsync<GameObject>(key: "RoR2/DLC2/ShrineHalcyonite.prefab").WaitForCompletion();
 
             GameObject Clouds = Object.Instantiate(HalcyShrine.transform.GetChild(7).gameObject);
@@ -155,7 +155,7 @@ namespace LoopVariants
             GameObject Rain = Object.Instantiate(HalcyShrine.transform.GetChild(8).gameObject); //Particle System
             Rain.SetActive(true);
             Rain.AddComponent<WeatherParticles>().lockPosition = true;
- 
+
             HalcyShrine.transform.GetChild(9); //StormPPVolume
 
             //Bloom bloom = (Bloom)Variants_4_DampCaveSimpleAbyss.ppSceneDampcaveHot.settings[1];

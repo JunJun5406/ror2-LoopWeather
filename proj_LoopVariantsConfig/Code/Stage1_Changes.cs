@@ -1,6 +1,4 @@
-using VariantConfig;
 using RoR2;
-using UnityEngine;
 using UnityEngine.AddressableAssets;
 
 namespace VariantConfig
@@ -31,7 +29,7 @@ namespace VariantConfig
             //dccsVillageNightInteractables.categories[67].cards[0].minimumStageCompletions = 1;
 
             dccsVillageNightMonsters_Additional.categories[0].cards[1].minimumStageCompletions = 1; //Grave
- 
+
 
         }
 
@@ -74,9 +72,9 @@ namespace VariantConfig
                 return;
             }
             //Technically, Beetle Queen,
- 
+
         }
- 
+
 
     }
 }

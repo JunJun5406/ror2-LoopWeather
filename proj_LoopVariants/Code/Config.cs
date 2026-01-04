@@ -15,7 +15,7 @@ namespace LoopVariants
         public static ConfigEntry<bool> Monster_Additions;
         public static ConfigEntry<bool> Name_Changes;
         public static ConfigEntry<bool> LegacyVariants;
-         
+
 
         public enum EnumEnemyAdds
         {
@@ -48,7 +48,7 @@ namespace LoopVariants
                "Add monsters to weather variants",
                 true,
                "Add additional monsters to the spawn pool of variants.\n\nWill only add if it detects all users have mod."
-           );            
+           );
             LegacyVariants = ConfigFileSTAGES.Bind(
                "Main",
                "Legacy Variants",
@@ -64,7 +64,7 @@ namespace LoopVariants
                true,
                "Should variants display a different name like official variants."
             );
-     
+
 
             WIP = ConfigFileSTAGES.Bind(
                 "Testing",
@@ -85,7 +85,7 @@ namespace LoopVariants
 
         public static void RiskConfig()
         {
-           ModSettingsManager.SetModIcon(Assets.LoadAssetAsync<Sprite>("Assets/LoopVariants/Icon.png"));
+            ModSettingsManager.SetModIcon(Assets.LoadAssetAsync<Sprite>("Assets/LoopVariants/Icon.png"));
 
             ModSettingsManager.SetModDescription("Loop Weather Variants for more stages.");
 
@@ -99,13 +99,13 @@ namespace LoopVariants
             ModSettingsManager.AddOption(new CheckBoxOption(Monster_Additions));
             ModSettingsManager.AddOption(new CheckBoxOption(Name_Changes));
             ModSettingsManager.AddOption(new CheckBoxOption(LegacyVariants));
-           
+
             ModSettingsManager.AddOption(new CheckBoxOption(S_1_Golem));
             //ModSettingsManager.AddOption(new CheckBoxOption(S_1_Roost));
             ModSettingsManager.AddOption(new CheckBoxOption(S_1_Snow));
             ModSettingsManager.AddOption(new CheckBoxOption(Enemy_1_Snow));
 
- 
+
             ModSettingsManager.AddOption(new CheckBoxOption(S_2_Goolake));
             ModSettingsManager.AddOption(new CheckBoxOption(S_2_Goolake_River));
             ModSettingsManager.AddOption(new CheckBoxOption(S_2_FoggySwamp));
@@ -128,7 +128,7 @@ namespace LoopVariants
             //ModSettingsManager.AddOption(new CheckBoxOption(S_4_Root_Jungle_Fruit));
 
             ModSettingsManager.AddOption(new CheckBoxOption(S_5_Helminth_Legacy));
-             
+
             ModSettingsManager.AddOption(new CheckBoxOption(S_6_Meridian));
 
         }
@@ -185,7 +185,7 @@ namespace LoopVariants
         public static ConfigEntry<bool> Enemy_4_Root_Jungle;
 
         public static ConfigEntry<bool> Enemy_5_Sky;
-        
+
         public static ConfigEntry<bool> Enemy_6_Commencement;
         public static ConfigEntry<bool> Enemy_6_Meridian;
 
@@ -340,7 +340,7 @@ namespace LoopVariants
                 false,
                 "Enable alt weather for this stage"
             );
-    
+
             /*S_6_Commencement = ConfigFileSTAGES.Bind(
                 "Stage Final",
                 "Commencement",

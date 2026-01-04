@@ -1,9 +1,8 @@
 ﻿using BepInEx;
-using VariantConfig;
 using RoR2;
 using System;
-using System.Collections.Generic;
 using UnityEngine;
+using VariantConfig;
 //using LoopVariantConfig;
 
 
@@ -15,7 +14,7 @@ namespace LoopVariants
     {
 
         //public static List<string> ExistingVariants = new List<string>() { "wispgraveyard", "golemplains", "goolake", "dampcavesimple", "snowyforest", "helminthroost", "foggyswamp", "rootjungle", "sulfurpools", "lemuriantemple", "ancientloft" };
-        
+
         public static bool AddMonsters
         {
             get
@@ -50,15 +49,15 @@ namespace LoopVariants
             WConfig.InitConfig();
 
             Main_Variants.Start();
- 
+
             On.RoR2.UI.AssignStageToken.Start += ApplyLoopNameChanges;
- 
+
             VariantConfig.VariantConfig.applyWeatherDCCS += VariantDCCS;
             VariantConfig.VariantConfig.applyWeatherVisuals += VariantConfig_applyWeatherGlobal;
- 
+
         }
- 
-    
+
+
 
         private void VariantConfig_applyWeatherGlobal(SyncLoopWeather weather)
         {
@@ -66,7 +65,7 @@ namespace LoopVariants
             {
                 return;
             }
-            
+
             bool hadVariant = false;
             try
             {
@@ -171,7 +170,7 @@ namespace LoopVariants
                     case "rootjungle":
                         if (WConfig.S_4_Root_Jungle.Value)
                         {
-                            hadVariant = true; 
+                            hadVariant = true;
                             Variants_4_RootJungle.Setup();
                             Variants_4_RootJungle.LoopWeather();
                         }
@@ -264,7 +263,7 @@ namespace LoopVariants
                             Variants_4_RootJungle.AddVariantMonsters(dccs);
                         }
                         break;
- 
+
                 }
             }
             catch (Exception e)
@@ -272,7 +271,7 @@ namespace LoopVariants
                 Debug.LogWarning("LoopVariants Error: " + e);
             }
         }
- 
+
         private static void ApplyLoopNameChanges(On.RoR2.UI.AssignStageToken.orig_Start orig, RoR2.UI.AssignStageToken self)
         {
             orig(self);
@@ -289,7 +288,7 @@ namespace LoopVariants
             }
         }
 
-        
+
     }
 
 }

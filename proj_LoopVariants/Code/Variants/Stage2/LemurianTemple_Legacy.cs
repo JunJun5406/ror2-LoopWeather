@@ -7,7 +7,7 @@ namespace LoopVariants
 {
     public class Variants_2_LemurianTemple_Legacy : Variant_Base
     {
- 
+
         public static Material Gold_matLTCrystal;
         public static Material CrystalForAltar;
 
@@ -28,7 +28,7 @@ namespace LoopVariants
             Color LeafColor = new Color(0.6604f, 0.3208f, 0.529f, 1) * 1.1f;
 
 
- 
+
             //matLTCrystal = Object.Instantiate(Addressables.LoadAssetAsync<Material>(key: "RoR2/DLC2/lemuriantemple/Assets/matLTCrystal.mat").WaitForCompletion());
             Gold_matLTCrystal = Object.Instantiate(Addressables.LoadAssetAsync<Material>(key: "RoR2/DLC2/matHalcyoniteShrineGold.mat").WaitForCompletion());
             //matLTCrystal = Object.Instantiate(Addressables.LoadAssetAsync<Material>(key: "RoR2/Base/ShrineGoldshoresAccess/matShrineChanceGolden.mat").WaitForCompletion());
@@ -84,7 +84,7 @@ namespace LoopVariants
                 light.color = GodRayColor;
             }
             #endregion
-  
+
             #region Crystals
             GameObject Prop = GameObject.Find("/HOLDER: Prop");
 

@@ -77,7 +77,7 @@ namespace LoopVariants
             //matEliteHauntedOverlay
 
             matDCCrystal = Object.Instantiate(Addressables.LoadAssetAsync<Material>(key: "RoR2/Base/dampcave/matDCCrystal.mat").WaitForCompletion());
-            matDCCrystal.color = new Color(0.6f,0f,0f);  //1 0.852 0.2783 1
+            matDCCrystal.color = new Color(0.6f, 0f, 0f);  //1 0.852 0.2783 1
             //_FlowHeightRamp //texRampMageFire
             //_FresnelRamp //texRampDroneFire
 

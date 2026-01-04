@@ -1,7 +1,5 @@
 using RoR2;
-using UnityEngine;
-using UnityEngine.Networking;
- 
+
 namespace VariantConfig
 {
     public class OfficialVariant
@@ -61,7 +59,7 @@ namespace VariantConfig
                     self.nextStageScene = preLoopVariant;
                 }
             }
- 
+
         }
 
         public static SceneDef GreenPortal_PickLoopVariant(On.RoR2.SceneExitController.orig_GetLoopedStageOrDefault orig, SceneExitController self, SceneDef sceneDef)

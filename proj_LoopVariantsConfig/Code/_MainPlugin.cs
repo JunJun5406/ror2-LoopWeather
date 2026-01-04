@@ -4,7 +4,6 @@ using RoR2;
 using System;
 using UnityEngine;
 using UnityEngine.Networking;
-using System.Runtime.CompilerServices;
 
 namespace VariantConfig
 {
@@ -28,7 +27,7 @@ namespace VariantConfig
 
 
         public static event Action<DirectorCardCategorySelection> applyWeatherDCCS;
-     
+
         public void Start()
         {
             WConfig.RiskConfig();
@@ -48,7 +47,7 @@ namespace VariantConfig
             //Add component and roll for first stage
             On.RoR2.Run.Awake += AskHostIfHasMod;
             On.RoR2.Run.Start += AddRoll_StartOfRun;
-            
+
             //PreStart is too early for ObjectToggleGroup
 
             On.RoR2.Stage.Start += Global_RollForNextStage;
@@ -58,14 +57,14 @@ namespace VariantConfig
 
             ChatMessageBase.chatMessageTypeToIndex.Add(typeof(SendSyncLoopWeather), (byte)ChatMessageBase.chatMessageIndexToType.Count);
             ChatMessageBase.chatMessageIndexToType.Add(typeof(SendSyncLoopWeather));
- 
+
 
             Stage1_Changes.EditDccs();
             applyWeatherDCCS += Stage1_Changes.OfficialVariantStage1Friendly;
 
- 
+
         }
- 
+
         private System.Collections.IEnumerator Global_RollForNextStage(On.RoR2.Stage.orig_Start orig, Stage self)
         {
             var temp = orig(self);
@@ -103,7 +102,7 @@ namespace VariantConfig
                 });
             }
         }
- 
+
         private void AddRoll_StartOfRun(On.RoR2.Run.orig_Start orig, Run self)
         {
             //Debug.LogWarning("On.RoR2.Run.orig_Start");
@@ -143,8 +142,8 @@ namespace VariantConfig
             {
                 Debug.LogWarning("IL Failed: AddVariantExclusiveMonsters");
             }
-        
-        
+
+
         }
         public static bool ShouldAddLoopEnemies(DirectorCardCategorySelection dccs)
         {
@@ -165,7 +164,7 @@ namespace VariantConfig
 
 
 
- 
+
         public class SendSyncLoopWeather : ChatMessageBase
         {
             //public event Action<bool> onHostLoopChoice;
@@ -195,7 +194,7 @@ namespace VariantConfig
 
             public bool CURRENT;
             public bool NEXT;
-             public bool HostPing = false;
+            public bool HostPing = false;
             public override void Serialize(NetworkWriter writer)
             {
                 base.Serialize(writer);
@@ -218,7 +217,7 @@ namespace VariantConfig
 
         }
 
-        
+
     }
     public class SyncLoopWeather : MonoBehaviour
     {
@@ -360,10 +359,10 @@ namespace VariantConfig
                     Current_Host = Next_Host;
                     Next_Host = value;
                 }
-                Current_Client = Next_Client; 
+                Current_Client = Next_Client;
                 Next_Client = value;
             }
         }
-        
+
     }
 }

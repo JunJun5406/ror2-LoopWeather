@@ -7,7 +7,7 @@ namespace LoopVariants
 {
     public class Variants_1_SnowyForest : Variant_Base
     {
-        
+
         public static void LoopWeather()
         {
             //PPSnowy
@@ -22,7 +22,7 @@ namespace LoopVariants
 
             //0.149 0.2858 0.3396 1
             //0.794
- 
+
             GameObject Weather = GameObject.Find("/HOLDER: Skybox");
 
             Light Sun = Weather.transform.GetChild(1).GetComponent<Light>();

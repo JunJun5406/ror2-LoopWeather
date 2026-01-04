@@ -1,8 +1,6 @@
-using EntityStates.Fauna;
 using RoR2;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.Networking;
 using UnityEngine.Rendering.PostProcessing;
 using static LoopVariants.Assets;
 
@@ -53,7 +51,7 @@ namespace LoopVariants
 
         public static GameObject Fruit;
         public static GameObject FruitFall;
-        
+
         public static bool setupComplete = false;
         public static new void Setup()
         {
@@ -63,7 +61,7 @@ namespace LoopVariants
             }
             setupComplete = true;
 
-         
+
             Texture2D Material_2_Color = LoadAssetAsync<Texture2D>("Assets/LoopVariants/RootJungle/Material_2_Color.png");
             Texture2D RJDistantTreeFoliage_Color = LoadAssetAsync<Texture2D>("Assets/LoopVariants/RootJungle/RJDistantTreeFoliage_Color.png");
             Texture2D RJDistantTreeFoliageCard = LoadAssetAsync<Texture2D>("Assets/LoopVariants/RootJungle/RJDistantTreeFoliageCard.png");
@@ -147,7 +145,7 @@ namespace LoopVariants
             RJHangingMoss_LOD0.color = Color.white;
 
 
-           // Addressables.LoadAssetAsync<Material>(key: "RoR2/Base/rootjungle/RJMossFoliage_LOD0.mat").WaitForCompletion().DisableKeyword("EFFECT_HUE_VARIATION");
+            // Addressables.LoadAssetAsync<Material>(key: "RoR2/Base/rootjungle/RJMossFoliage_LOD0.mat").WaitForCompletion().DisableKeyword("EFFECT_HUE_VARIATION");
 
             RJMossFoliage_LOD0 = Object.Instantiate(Addressables.LoadAssetAsync<Material>(key: "RoR2/Base/rootjungle/RJMossFoliage_LOD0.mat").WaitForCompletion());
             //RJMossFoliage_LOD0.color = new Color(0.8679f, 0.8416f, 0.479f, 1); //0.479 0.8416 0.8679 1
@@ -163,7 +161,7 @@ namespace LoopVariants
             RJShroomFoliage_LOD0 = Object.Instantiate(Addressables.LoadAssetAsync<Material>(key: "RoR2/Base/rootjungle/RJShroomFoliage_LOD0.mat").WaitForCompletion());
             RJShroomFoliage_LOD0.mainTexture = RJShroomFoliage_Color;
 
-   
+
             matRootJungleSpore = Object.Instantiate(Addressables.LoadAssetAsync<Material>(key: "RoR2/Base/rootjungle/matRootJungleSpore.mat").WaitForCompletion());
             matRootJungleSpore.SetColor("_TintColor", new Color(12f, 10.7f, 3.5f, 1f)); //3.5137 6.7137 16 1
 
@@ -311,7 +309,7 @@ namespace LoopVariants
             Weather.transform.GetChild(2).GetComponent<ReflectionProbe>().bakedTexture = Addressables.LoadAssetAsync<Cubemap>(key: "RoR2/DLC2/habitatfall/ReflectionProbe-0.exr").WaitForCompletion();
 
 
- 
+
             TheSun.color = new Color(1f, 0.9176f, 0.749f, 1);//0.749 0.9176 1 1
             TheSun.intensity = 0.35f; //0.7
             /*
@@ -336,7 +334,7 @@ namespace LoopVariants
             newAmbient.ApplyLighting();
             */
 
-           
+
             #region Fruity
             //forEach Vine, spawn big Fruit
 
@@ -368,7 +366,7 @@ namespace LoopVariants
                 }
             }
             #endregion
- 
+
             #region Particles
             //forEach Mushroom, particle change colors ig
 

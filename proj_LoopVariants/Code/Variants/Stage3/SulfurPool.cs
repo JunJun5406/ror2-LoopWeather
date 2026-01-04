@@ -1,10 +1,10 @@
-using VariantConfig;
 using RoR2;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Networking;
 using UnityEngine.Rendering.PostProcessing;
+using VariantConfig;
 
 namespace LoopVariants
 {
